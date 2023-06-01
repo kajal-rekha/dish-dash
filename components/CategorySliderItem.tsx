@@ -1,0 +1,32 @@
+import Image from "next/image";
+import Overlay from "./Overlay";
+
+interface CategorySliderItemProps {
+  image: string;
+  alt: string;
+  name: string;
+}
+
+const CategorySliderItem: React.FC<CategorySliderItemProps> = ({
+  image,
+  alt,
+  name,
+}) => {
+  return (
+    <div className="w-full h-full relative">
+      <Image
+        src={image}
+        alt={alt}
+        width={500}
+        height={500}
+        className="w-full h-full object-cover"
+      />
+      <Overlay />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-center z-[2] space-y-5">
+        <h3 className="text-5xl font-semibold">{name}</h3>
+      </div>
+    </div>
+  );
+};
+
+export default CategorySliderItem;
